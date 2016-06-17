@@ -1,0 +1,14 @@
+1.创建RefreshableView对象 eg:RefreshableView refreshableView;
+2.获得对象实例的布局 eg:refreshableView = (RefreshableView) findViewById(R.id.refreshable_view);
+3.设置监听事件并重写onRefresh()
+eg: refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
+            @Override
+            public void onRefresh() {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                refreshableView.finishRefreshing();
+            }
+        }, 0);
